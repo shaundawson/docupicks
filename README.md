@@ -1,7 +1,8 @@
 
-Users have the ability to sort through a list of suggested docummentaries from the front page by filtering the movies they love through title search, director name, tomatometer score, category, or streaming source (Netflix, Hulu, Amazon Prime or Youtube. Once the user clicks through to a movie/series page, they will see a Youtube movie trailer, description of the film, director name, critic review from rotten tomatoes and all sources where the content can be watched. 
+**Discover the best documentaries on the web with DocuPicks**  
 
-Database includes IMDB top 150 documentary feature films, IMDB top 50 documentary series. 
+DocuPicks is a CRUD app for documentary lovers. The database contains tomatometer scores, youtube trailers and streaming sources for IMDB's top rated documentary films and TV series. Currently there are approx 200 movies in the database.
 
-tomatometer score, runtime, 
+Users have the ability to sort through a list of suggested docummentaries. Content can be  by  title, director name, tomatometer score, category, or streaming source (Netflix, Hulu, Amazon Prime or Youtube. Users also have the ability to create a "watch-list" to and provide feedback to the community about films they have watched in the past. 
+
 
