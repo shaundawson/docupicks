@@ -1,44 +1,55 @@
--- DROP tables
 DROP TABLE IF EXISTS movies_categories_xref;
-DROP TABLE IF EXISTS students;
-DROP TABLE IF EXISTS houses;
-DROP TABLE IF EXISTS colors;
+DROP TABLE IF EXISTS networks_movies_xref;
+DROP TABLE IF EXISTS directors;
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS networks;
+DROP TABLE IF EXISTS movies;
 
--- CREATE tables
+
 CREATE TABLE movies (
-imdb_id SMALLINT PRIMARY KEY,
+imdb_id VARCHAR(9) PRIMARY KEY,
 type VARCHAR(45) NOT NULL,
-release_year DATE,
-title VARCHAR(128)
+title VARCHAR(128) UNIQUE NOT NULL,
+release_year SMALLINT,
+description TEXT,
 duration SMALLINT,
-description VARCHAR(255) NOT NULL,
-trailer_url VARCHAR(255) UNIQUE,
-youtube_url VARCHAR(255) UNIQUE,
-netflix_url VARCHAR(255) UNIQUE,
-hulu_url VARCHAR(255) UNIQUE,
-amazon_prime_url VARCHAR(255) UNIQUE
+trailer_url VARCHAR(255)
+);
+
+CREATE TABLE networks (
+imdb_id VARCHAR(9) REFERENCES movies(imdb_id),
+youtube_url VARCHAR(255),
+netflix_url VARCHAR(255),
+hulu_url VARCHAR(255),
+amazon_prime_url VARCHAR(255),
+PRIMARY KEY (imdb_id)
 );
 
 CREATE TABLE directors (
-id SERIAL PRIMARY KEY,
-name VARCHAR(45) UNIQUE NOT NULL,
-imdb_id SMALLINT REFERENCES movies(imdb_id)
+id SERIAL PRIMARY KEY ,
+fname VARCHAR(45) ,
+lname VARCHAR(45) ,
+movie_title VARCHAR(128) REFERENCES movies(title)
 );
 
 CREATE TABLE categories (
-id SERIAL PRIMARY KEY,
-name VARCHAR(45) UNIQUE
+id SERIAL PRIMARY KEY ,
+imdb_id VARCHAR(9) REFERENCES movies(imdb_id),
+main VARCHAR(45),
+secondary VARCHAR(45)
 );
 
 CREATE TABLE reviews (
 id SERIAL PRIMARY KEY,
-imdb_id SMALLINT REFERENCES movies(imdb_id),
-imdb_rating DECIMAL(10,2),
+movie_title VARCHAR(9) REFERENCES movies(title),
+imdb_rating DECIMAL(10,1),
 tomatometer SMALLINT,
 metacrtic_score SMALLINT
 );
 
 CREATE TABLE movies_categories_xref (
-imdb_id SMALLINT REFERENCES movies(imdb_id),
-category_id SERIAL REFERENCES categories(id)
+imdb_id VARCHAR(9) REFERENCES movies(imdb_id),
+category_id SERIAL REFERENCES categories(id),
+PRIMARY KEY(imdb_id, category_id)
 );

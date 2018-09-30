@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+// grab everything from the models, including the DB connection
+const { Movie, Network, Director, Category, Review, db } = require('../models');
+const { movies } = require('../data/movies');
+const { networks } = require('../data/networks');
+const { directors } = require('../data/directors');
+const { categories } = require('../data/categories');
+const { reviews } = require('../data/reviews');
+
+(async () => {
+  await Network.bulkCreate(networks);
+  await Movie.bulkCreate(movies);
+  await Director.bulkCreate(directors);
+  await Category.bulkCreate(categories);
+  await Review.bulkCreate(reviews);
+  db.close();
+})();
