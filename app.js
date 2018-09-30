@@ -6,6 +6,7 @@ const reactViews = require('express-react-views');
 const methodOverride = require('method-override');
 const movieRouter = require('./routes/moviesRouter');
 const networkRouter = require('./routes/networksRouter');
+const categoryRouter = require('./routes/categoriesRouter');
 
 // Initialize the express app
 const app = express();
@@ -28,6 +29,7 @@ app.use(session({
 // ROUTES
 app.use('/movies', movieRouter);
 app.use('/networks', networkRouter);
+app.use('/tags', categoryRouter);
 
 // GET request handler for '/' (roote route)
 app.get('/', (req, res) => {
