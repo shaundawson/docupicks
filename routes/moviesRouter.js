@@ -1,22 +1,24 @@
 // Bring in express
 const express = require('express');
-const movieController = require('../controllers/moviesController');
+const movies = require('../controllers/moviesController');
 const views = require('../controllers/viewController');
 
 // Invoke the router()
-const movieRouter = express.Router({ mergeParams: true });
+const moviesRouter = express.Router({ mergeParams: true });
 
 // everything in this file will be mounted at /movies
 
-movieRouter.route('/')
-  .get(movieController.index)
-  .post();
+moviesRouter.route('/:movies_id')
+  .get(movies.showOne, views.showOne)
+  .put(movies.update, views.handleUpdate)
+  .delete(movies.destroy, views.handleDestroy);
 
-movieRouter.route('/:id')
-  .get()
-  .put()
-  .delete();
 
-movieRouter.use();
+moviesRouter.route('/')
+  .get(movies.index, views.showMovies)
+  .post(movies.create, views.handleCreate);
 
-module.exports = movieRouter;
+moviesRouter.use(views.sendJSON, views.send404);
+
+
+module.exports = moviesRouter;

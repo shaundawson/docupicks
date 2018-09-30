@@ -1,27 +1,22 @@
-// Import express from dependencies
-const express = require('express');
-// Require morgan
-const logger = require('morgan');
-const bodyParser = require('body-parser');
+const express = require('express'); // Imports express framework
+const logger = require('morgan'); // Express middleware for logging requests and responses. Useful during dev mode so you can see what requests are being made.
+const bodyParser = require('body-parser'); //Express middleware that you should use with forms. Adds a body object into your requuests so you can access POST parameter
 const session = require('express-session');
 const reactViews = require('express-react-views');
 const methodOverride = require('method-override');
 const movieRouter = require('./routes/moviesRouter');
-const movieController = require('./routes/moviesController');
 
 // Initialize the express app
 const app = express();
 
+// Set the view folder and view engine
 app.set('view engine', 'jsx');
 app.engine('jsx', reactViews.createEngine());
 
-// Set up morgan to log requests
-app.use(logger('dev'));
+app.use(logger('dev')); // Set up morgan to log requests to the console.
 app.use(methodOverride('_method'));
-// parse application/json
-app.use(bodyParser.json());
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json()); //give app the ability to parse JSON
+app.use(bodyParser.urlencoded({ extended: false })); // Allows app to reqd data from GET requests.
 app.use(session({
   secret: 'keyboard cat',
   cookie: { maxAge: 60000 },
@@ -30,7 +25,6 @@ app.use(session({
 }));
 
 // ROUTES
-
 app.use('/movies', movieRouter);
 
 // GET request handler for '/' (roote route)

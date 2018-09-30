@@ -15,7 +15,10 @@ const db = new Sequelize({
 const Movie = db.define('movies', {
   imdbId: {
     type: Sequelize.STRING(9),
-    primaryKey: true,
+    unique: false,
+  },
+  movieTitle: {
+    type: Sequelize.STRING(128),
   },
   type: {
     type: Sequelize.STRING(45),
@@ -32,17 +35,15 @@ const Movie = db.define('movies', {
   },
   trailerUrl: {
     type: Sequelize.STRING(255),
-    key: 'trailer_url',
   },
   category: {
-    type: Sequelize.STRING(45),
+    type: Sequelize.STRING(255),
   },
 });
 
 const Network = db.define('networks', {
   movieTitle: {
     type: Sequelize.STRING(128),
-    primaryKey: true,
   },
   youtubeUrl: {
     type: Sequelize.STRING(255),
@@ -76,7 +77,6 @@ const Director = db.define('directors', {
 const Category = db.define('categories', {
   subject: {
     type: Sequelize.STRING(45),
-    unique: true,
   },
 });
 
@@ -95,20 +95,15 @@ const Review = db.define('reviews', {
   },
 });
 
-// Relationships
+// Associations
+Movie.belongsTo(Director, { through: 'movies_directors_xref' });
+Director.belongsToMany(Movie, { through: 'movies_categories_xref' });
 
+Network.hasOne(Movie, { foreignKey: 'networkId', foreignKeyConstraint: true });
+Review.hasOne(Movie, { foreignKey: 'movieReviewId', foreignKeyConstraint: true });
 
-Movie.hasMany(Director);
-Director.belongsTo(Movie);
-
-Network.hasMany(Movie);
-Movie.belongsTo(Network);
-
-Review.belongsTo(Movie);
-
-Category.belongsToMany(Movie, { through: 'movies_categories_xref' });
+Category.belongsTo(Movie, { through: 'movies_categories_xref' });
 Movie.belongsToMany(Category, { through: 'movies_categories_xref' });
-
 
 // Export the models from the file
 module.exports = {

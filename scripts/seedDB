@@ -8,8 +8,8 @@ const { categories } = require('../data/categories');
 const { reviews } = require('../data/reviews');
 
 (async () => {
-  await Network.bulkCreate(networks);
   await Movie.bulkCreate(movies);
+  await Network.bulkCreate(networks);
   await Director.bulkCreate(directors);
   await Category.bulkCreate(categories);
   await Review.bulkCreate(reviews);
