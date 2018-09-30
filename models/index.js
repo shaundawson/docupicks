@@ -45,19 +45,19 @@ const Network = db.define('networks', {
   movieTitle: {
     type: Sequelize.STRING(128),
   },
-  youtubeUrl: {
+  youtube: {
     type: Sequelize.STRING(255),
     allowNull: true,
   },
-  netflixUrl: {
+  netflix: {
     type: Sequelize.STRING(255),
     allowNull: true,
   },
-  huluUrl: {
+  hulu: {
     type: Sequelize.STRING(255),
     allowNull: true,
   },
-  amazonPrimeUrl: {
+  prime: {
     type: Sequelize.STRING(255),
   },
 });

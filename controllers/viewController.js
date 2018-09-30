@@ -1,6 +1,5 @@
 module.exports = {
 
-  //Movies
   showMovies(req, res) {
     res.json(res.locals);
   },

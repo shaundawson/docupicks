@@ -1,16 +1,16 @@
 const networks = [{
   movieTitle: 'Quincy',
-  youtubeUrl: '',
-  netflixUrl: 'www.netflix.com/title/80102952?source=35',
-  huluUrl: '',
-  amazonPrimeUrl: '',
+  youtube: '',
+  netflix: 'www.netflix.com/title/80102952?source=35',
+  hulu: '',
+  prime: '',
 },
 {
   movieTitle: 'Reversing Roe',
-  youtubeUrl: '',
-  netflixUrl: 'www.netflix.com/title/80192834',
-  huluUrl: '',
-  amazonPrimeUrl: '',
+  youtube: '',
+  netflix: 'www.netflix.com/title/80192834',
+  hulu: '',
+  prime: '',
 }];
 
 module.exports = { networks };
