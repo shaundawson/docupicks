@@ -5,6 +5,9 @@ const session = require('express-session');
 const reactViews = require('express-react-views');
 const methodOverride = require('method-override');
 const path           = require('path');
+const cookieParser = require('cookie-parser')
+const Alert = require('react-bootstrap/lib/Alert');
+
 
 const movieRouter = require('./routes/moviesRouter');
 const networkRouter = require('./routes/networksRouter');
@@ -25,6 +28,7 @@ app.use(logger('dev')); // Set up morgan to log requests to the console.
 app.use(methodOverride('_method'));
 app.use(bodyParser.json()); // Give app the ability to parse JSON
 app.use(bodyParser.urlencoded({ extended: false })); // Allows app to reqd data from GET requests.
+app.use(cookieParser());
 app.use(express.static(path.join('public'))); // Designates and makes public folder acccessible through the root  -- css files,images, scripts. Can be used to access any file directly or with routes
 
 app.use(session({
@@ -41,7 +45,7 @@ app.use('/tags', categoryRouter);
 
 // GET request handler for homepage
 app.get('/', (req, res) => {
-  res.render('Index');
+  res.render('Index')
 });
 
 

@@ -1,26 +1,32 @@
-import React from 'react';
+import React     from 'react';
 import Nav from './Nav';
+import PropTypes from 'prop-types';
 
-export default ({ title, children, props}) => (
-  <html>
-    <head>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>{title}</title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-      <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" />
-      <link rel="stylesheet" href="/css/styles.css" />
-    </head>
-    <body>
-      <Nav {...props} />
-      <section className="section">
-        <div className="container">
-          {children}
+
+export default ({ title, children, props }) => (
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/<react-version>/react-dom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/<version>/react-bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+<div className="container">
+<Nav {...props} />
+  <div className="row">
+      <div className="col-xs-12">
+          <div className="jumbotron">
+                <h2>WILD WILD COUNTRY</h2>
+                <h3> TV Series</h3>
+              <p> When the world's most controversial guru builds a utopian city deep in the Oregon desert, conflict with the locals escalates into a national scandal. A true story. </p>
+              <p><a href="https://www.youtube.com/watch?v=WT7gn6nhsAc" target="_blank" class="btn btn-primary btn-lg" data-toggle="modal" data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#myModal"> Watch Trailer</a></p>
+            </div>
         </div>
-      </section>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
-  </html>
+    </div>
+</div>
+</body>
+</html>
 );
+

@@ -1,4 +1,51 @@
 body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial;
+background-color: black;
+color: white;
+}
+
+h4 {
+  color: #ffc40b;
+  padding-top: 10px;
+}
+
+.navbar-brand {
+  margin-bottom: 20px;
+  margin-top: -80px;
+}
+
+.jumbotron {
+    margin-bottom: 60px;
+    background-image: url(https://i.imgur.com/y9l09K3.jpg);
+    background-position: 0% 50%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.card-img-top {
+  width:  240px;
+  height: 150px;
+  padding-top: 25px;
+}
+
+//Reviews Stars
+.checked {
+    color: orange;
+}
+
+
+//Video Modal
+.modal-body {
+  position:relative;
+  padding:0px;
+}
+.close {
+  position:absolute;
+  right:-30px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  color:#fff;
+  opacity:1;
 }
