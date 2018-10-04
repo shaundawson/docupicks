@@ -1,10 +1,14 @@
 // Bring in express
 const express = require('express');
+const movies = require('../controllers/moviesController');
 const networks = require('../controllers/networksController');
 const views = require('../controllers/viewController');
 
 // Invoke the router()
 const networksRouter = express.Router({ mergeParams: true });
+
+networksRouter.route('/:networks_id/movie')
+  .get(movies.index)
 
 networksRouter.route('/:networks_id')
   .get(networks.showOne, views.showOne)

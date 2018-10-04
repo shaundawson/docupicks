@@ -2,27 +2,23 @@ const express = require('express'); // Imports express framework
 const logger = require('morgan'); // Express middleware for logging requests and responses. Useful during dev mode so you can see what requests are being made.
 const bodyParser = require('body-parser'); // Express middleware that you should use with forms. Adds a body object into your requuests so you can access POST parameter.
 const session = require('express-session');
-const reactViews = require('express-react-views');
+const { createEngine } = require('express-react-views');
 const methodOverride = require('method-override');
 const path           = require('path');
+const EJS  = require('ejs');
 const cookieParser = require('cookie-parser')
-const Alert = require('react-bootstrap/lib/Alert');
-
-
 const movieRouter = require('./routes/moviesRouter');
 const networkRouter = require('./routes/networksRouter');
 const categoryRouter = require('./routes/categoriesRouter');
 
-//const movieController = require('./routes/moviesController');
-//const networkController = require('./routes/networksController');
-//const categoryController = require('./routes/categoriesController');
 
 // Initialize the express app
 const app = express();
 // Set the view folder and view engine
-app.set('view engine', 'jsx');
-app.engine('jsx', reactViews.createEngine());
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
+app.locals.siteTitle = 'Docupicks';
 
 app.use(logger('dev')); // Set up morgan to log requests to the console.
 app.use(methodOverride('_method'));
@@ -40,13 +36,15 @@ app.use(session({
 
 // ROUTES
 app.use('/movies', movieRouter);
-app.use('/networks', networkRouter);
-app.use('/tags', categoryRouter);
+app.use('/network', networkRouter);
+app.use('/genre', categoryRouter);
 
 // GET request handler for homepage
 app.get('/', (req, res) => {
-  res.render('Index')
-});
-
+    res.render('index', {
+      pageTitle: 'Home',
+      pageId: 'home'
+     });
+  });
 
 module.exports = { app };

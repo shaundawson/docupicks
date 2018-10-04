@@ -7,6 +7,7 @@ const movies = [{
   duration: 124,
   trailerUrl: 'www.youtube.com/watch?v=WT7gn6nhsAc',
   category: 'Music, Bio',
+  posterImg: "/images/poster/quincy.jpg",
 },
 {
   imdbId: 'tt8948614',
@@ -17,6 +18,7 @@ const movies = [{
   duration: 99,
   trailerUrl: 'www.youtube.com/watch?v=ihN7DR1Ce6g',
   category: 'Politics',
+  posterImg: "/images/poster/reversing_roe.jpg",
 }];
 
 module.exports = { movies };

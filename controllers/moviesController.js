@@ -36,6 +36,7 @@ module.exports = {
           duration,
           trailerUrl,
           category,
+          posterImg,
         },
       );
       res.locals.newId = newMovie.id;

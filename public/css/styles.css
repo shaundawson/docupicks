@@ -1,51 +1,29 @@
 body {
+  background-color:black;
+  margin: 100px;
+}
+
+.wrapper{
+    width: 85%;
+    margin: auto;
+}
+
+/* Header */
+.navbar {
 background-color: black;
-color: white;
 }
 
-h4 {
-  color: #ffc40b;
-  padding-top: 10px;
+.buttons-group-header {
+  padding:50px;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
 }
 
-.navbar-brand {
-  margin-bottom: 20px;
-  margin-top: -80px;
+.card-section {
+  margin-bottom: : -100px;
 }
 
-.jumbotron {
-    margin-bottom: 60px;
-    background-image: url(https://i.imgur.com/y9l09K3.jpg);
-    background-position: 0% 50%;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    color: white;
-}
-
-.card-img-top {
-  width:  240px;
-  height: 150px;
-  padding-top: 25px;
-}
-
-//Reviews Stars
-.checked {
-    color: orange;
-}
-
-
-//Video Modal
-.modal-body {
-  position:relative;
-  padding:0px;
-}
-.close {
-  position:absolute;
-  right:-30px;
-  top:0;
-  z-index:999;
-  font-size:2rem;
-  font-weight: normal;
-  color:#fff;
-  opacity:1;
+.field {
+  width: 350px;
 }

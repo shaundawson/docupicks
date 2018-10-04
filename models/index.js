@@ -39,6 +39,9 @@ const Movie = db.define('movies', {
   category: {
     type: Sequelize.STRING(255),
   },
+   posterImg: {
+    type: Sequelize.TEXT,
+  },
 });
 
 const Network = db.define('networks', {

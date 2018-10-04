@@ -2,6 +2,7 @@ module.exports = {
 
   showMovies(req, res) {
     res.json(res.locals);
+    //console.log(res.locals);
   },
   handleCreate(req, res) {
     res.json(res.locals);
