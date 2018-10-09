@@ -39,8 +39,11 @@ const Movie = db.define('movies', {
   category: {
     type: Sequelize.STRING(255),
   },
-   posterImg: {
+  posterImg: {
     type: Sequelize.TEXT,
+  },
+  imdbRating: {
+    type: Sequelize.DECIMAL(10, 1),
   },
 });
 

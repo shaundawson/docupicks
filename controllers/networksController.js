@@ -1,4 +1,5 @@
 const { Network } = require('../models/index');
+
 module.exports = {
 
   async index(req, res, next) {
@@ -14,7 +15,7 @@ module.exports = {
     try {
       const id = Number.parseInt(req.params.networks_id, 10);
       res.locals.networks = await Network.findOne({
-        where:      { id },
+        where: { id },
         rejectOnEmpty: true,
       });
       next();
@@ -25,7 +26,9 @@ module.exports = {
 
   async create(req, res, next) {
     try {
-      const { movieTitle, youtube, netflix, hulu, prime } = req.body;
+      const {
+        movieTitle, youtube, netflix, hulu, prime,
+      } = req.body;
       const newNetwork = await Network.create(
         {
           movieTitle,
@@ -46,7 +49,9 @@ module.exports = {
     try {
       const id = Number.parseInt(req.params.networks_id, 10);
       const newNetwork = await Network.findOne({ where: { id } });
-      const { movieTitle, youtube, netflix, hulu, prime} = req.body;
+      const {
+        movieTitle, youtube, netflix, hulu, prime,
+      } = req.body;
       await newNetwork.update(
         {
           movieTitle,

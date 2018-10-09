@@ -1,4 +1,5 @@
 const { Category } = require('../models/index');
+
 module.exports = {
 
   async index(req, res, next) {
@@ -14,7 +15,7 @@ module.exports = {
     try {
       const id = Number.parseInt(req.params.categories_id, 10);
       res.locals.categories = await Category.findOne({
-        where:      { id },
+        where: { id },
         rejectOnEmpty: true,
       });
       next();
