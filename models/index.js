@@ -12,7 +12,7 @@ const db = new Sequelize({
 });
 
 /*
-const db = new Sequelize(
+const db = new Sequeliz
   process.env.DATABASE_URL,
   operatorsAliases: false,
   define:{
