@@ -23,7 +23,7 @@ const db = new Sequeliz
 */
 
 // Models
-const Movie = db.define('movies', {
+const Movie = db.define('movie', {
   imdbId: {
     type: Sequelize.STRING(9),
     unique: false,
@@ -58,7 +58,7 @@ const Movie = db.define('movies', {
   },
 });
 
-const Network = db.define('networks', {
+const Network = db.define('network', {
   movieTitle: {
     type: Sequelize.STRING(128),
   },
@@ -79,7 +79,7 @@ const Network = db.define('networks', {
   },
 });
 
-const Director = db.define('directors', {
+const Director = db.define('director', {
   fname: {
     type: Sequelize.STRING(45),
   },
@@ -91,13 +91,13 @@ const Director = db.define('directors', {
   },
 });
 
-const Category = db.define('categories', {
+const Category = db.define('category', {
   subject: {
     type: Sequelize.STRING(45),
   },
 });
 
-const Review = db.define('reviews', {
+const Review = db.define('review', {
   imdbRating: {
     type: Sequelize.DECIMAL(10, 1),
     allowNull: true,
