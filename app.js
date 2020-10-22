@@ -8,9 +8,9 @@ const path = require('path');
 const reactViews     = require('express-react-views');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
-const movieRouter = require('./routes/moviesRouter');
-const networksRouter = require('./routes/networksRouter');
-const categoryRouter = require('./routes/categoriesRouter');
+const movieRouter = require('./routes/movieRouter');
+const networksRouter = require('./routes/networkRouter');
+const categoryRouter = require('./routes/categoryRouter');
 
 
 
@@ -39,8 +39,8 @@ app.use(session({
 
 // ROUTES
 app.use('/movies', movieRouter);
-app.use('/genre', categoryRouter);
-app.use('/network', networksRouter);
+app.use('/category', categoryRouter);
+app.use('/network', networkRouter);
 
 // GET request handler for homepage
 app.get('/', function (req, res) {
