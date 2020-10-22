@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 const db = new Sequelize({
   database: 'docupicks_db',
   dialect: 'postgres',
+  operatorsAliases: false,
   define: {
     underscored: true, // underscores instead of capitals
     returning: true, // force to always return values
