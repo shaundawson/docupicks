@@ -1,13 +1,13 @@
 
 ## Get Started.
 
-run `npm install` or `yarn install` to install dependencies into the node_modules/ directory
+Run `npm install` or `yarn install` to install dependencies into the node_modules/ directory
 
 Once the dependencies are installed, you can run the app with `npm start` or `yarn start`
 
 This runs the app in development mode. Open http://localhost:3000 to view it in the browser.
 
-## Discover the best documentaries on the web.
+## About the App.
 The docupicks app provides reviews, youtbe trailers and streaming sources for IMDB's top rated documentary films and TV series. Users also have the ability to create a "watch-list" and provide feedback to the community about films they have watched in the past.
 
  ## The Stack.

@@ -11,6 +11,16 @@ const db = new Sequelize({
   },
 });
 
+/*
+const db = new Sequelize(
+  process.env.DATABASE_URL,
+  operatorsAliases: false,
+  define:{
+    underscored: true,
+    returning: true,
+  },
+);
+*/
 
 // Models
 const Movie = db.define('movies', {

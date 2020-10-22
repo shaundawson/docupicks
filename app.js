@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express'); // Imports express framework
 const logger = require('morgan'); // Express middleware for logging requests and responses. Useful during dev mode so you can see what requests are being made.
 const bodyParser = require('body-parser'); // Express middleware that you should use with forms. Adds a body object into your requuests so you can access POST parameter.
@@ -10,7 +11,8 @@ const networksRouter = require('./routes/networksRouter');
 const categoryRouter = require('./routes/categoriesRouter');
 
 
-// Initialize the express app
+
+// Start Express
 const app = express();
 // Set the view folder and view engine
 app.set('views', path.join(__dirname, 'views'));
@@ -42,6 +44,11 @@ app.use('/network', networksRouter);
 app.get('/', function (req, res) {
   res.render('index');
 });
+
+app.get('/newMovie', (req, res) => {
+   res.render('NewMovie')
+ });
+
 
 
 module.exports = { app };
